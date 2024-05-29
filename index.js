@@ -1,5 +1,5 @@
-const fruits=document.getElementsByClassName('fruit');
-fruits[2].style.backgroundColor='yellow';
-for(let s of fruits){
-  s.style.fontWeight='bold';
+const list=document.getElementsByTagName('li');
+list[4].style.color='blue';
+for(let x of list){
+  x.style.fontStyle='italic';
 }
