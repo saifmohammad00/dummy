@@ -1,11 +1,24 @@
-const subheading=document.createElement('h3');
-const text=document.createTextNode('Buy high quality organic fruits online');
-subheading.appendChild(text);
-const divs=document.querySelectorAll('div');
-divs[0].appendChild(subheading);
-subheading.style.fontStyle='italic';
-const para=document.createElement('p');
-const text2=document.createTextNode('Total fruits: 4');
-para.appendChild(text2);
-divs[1].insertBefore(para,divs[1][1]);
-para.setAttribute('id','fruits-total');
+const list=document.querySelectorAll('li');
+for(let a of list){
+  const btn=document.createElement('button');
+  btn.textContent="Edit";
+  btn.setAttribute('class','edit-btn');
+  a.appendChild(btn);
+}
+// Implement the code as in video but with one extra 'Edit' button in
+const form=document.querySelector('form');
+const fruits=document.querySelector('.fruits');
+form.addEventListener('submit',function(event){
+  event.preventDefault();
+  const newfruit=document.getElementById('fruit-to-add');
+  const x=document.createElement('li');
+  x.setAttribute('class','fruit');
+  x.innerHTML=newfruit.value+'<button class="delete-btn">x</button>'+'<button class="edit-btn">Edit</button>';
+  fruits.appendChild(x);
+});
+fruits.addEventListener('click',function(event){
+  if(event.target.classList.contains('delete-btn')){
+    const fruitdelete=event.target.parentElement;
+    fruits.removeChild(fruitdelete);
+  }
+})
