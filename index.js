@@ -1,24 +1,22 @@
-const list=document.querySelectorAll('li');
-for(let a of list){
-  const btn=document.createElement('button');
-  btn.textContent="Edit";
-  btn.setAttribute('class','edit-btn');
-  a.appendChild(btn);
-}
-// Implement the code as in video but with one extra 'Edit' button in
 const form=document.querySelector('form');
-const fruits=document.querySelector('.fruits');
-form.addEventListener('submit',function(event){
-  event.preventDefault();
-  const newfruit=document.getElementById('fruit-to-add');
-  const x=document.createElement('li');
-  x.setAttribute('class','fruit');
-  x.innerHTML=newfruit.value+'<button class="delete-btn">x</button>'+'<button class="edit-btn">Edit</button>';
-  fruits.appendChild(x);
-});
-fruits.addEventListener('click',function(event){
-  if(event.target.classList.contains('delete-btn')){
-    const fruitdelete=event.target.parentElement;
-    fruits.removeChild(fruitdelete);
-  }
+form.addEventListener("submit",function(event){
+    event.preventDefault();
+    const x=event.target.a.value;
+    const y=event.target.b.value;
+    const z=event.target.c.value;
+    const list=document.createElement('li');
+    list.textContent=`${x}-${y}-${z}`;
+    const btn1=document.createElement('button');
+    btn1.textContent="delete";
+    const btn2=document.createElement('button');
+    btn2.textContent="edit";
+    list.appendChild(btn1);
+    list.appendChild(btn2);
+    document.querySelector('ul').appendChild(list);
+    btn1.addEventListener("click",function(event){
+      btn1.parentElement.remove();
+    })
+    btn2.addEventListener("click",function(event){
+      btn2.parentElement.remove();
+    })
 })
