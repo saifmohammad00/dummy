@@ -26,7 +26,7 @@ document.querySelector('form').addEventListener("submit",function(e){
 })
 document.querySelector('.todo').addEventListener("click",function(s){
     if(s.target.classList.contains('delete')){
-        axios.delete(`https://crudcrud.com/api/fa01d525468047d8b4131ca043c5c6fe/${s.target.parentElement.getAttribute('uid')}`)
+        axios.delete(`https://crudcrud.com/api/fa01d525468047d8b4131ca043c5c6fe/folder/${s.target.parentElement.getAttribute('uid')}`)
         .then((res)=>{
             s.target.parentElement.remove();
         })
